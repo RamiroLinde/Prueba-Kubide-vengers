@@ -1,0 +1,38 @@
+@mixin column ($position) {
+    $columWidth: 100% / 12 * $position;
+    width: calc(#{$columWidth} - #{$marginGrid * 2});
+}
+
+.grid{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+[class*='col-']{
+    margin: $marginGrid;
+}
+
+//Smartphone
+@for $i from 1 to 12 {
+    .col-#{$i}{
+        @include column($i);
+    }
+}
+
+//Tablet
+@media(min-width: $breakPoitTablet) {
+    @for $i from 1 through 12{
+        .col-#{$i}{
+            @include column($i);
+        }
+    }
+}
+
+//Desktop
+@media(min-width: $breakPoitDesktop) {
+    @for $i from 1 through 12{
+        .col-#{$i}{
+            @include column($i);
+        }
+    }
+}
