@@ -1,12 +1,9 @@
-<div>
-    <img [src]="heroCard?.thumbnail.path+'.'+heroCard?.thumbnail.extension" alt="">
-    <div class="card-body">
-        <h5>{{heroCard?.name}}</h5>
-        <ul class="card-text">
-            <li>Dato 1</li>
-            <li>Dato 2</li>
-        </ul>
-        <p>Otro dato</p>
-        <a href="">Boton</a>
-    </div>
+<div class="card actived">
+    <h5>{{heroCard?.name}}</h5>
+    <figure>
+        <img [src]="heroCard?.thumbnail.path+'.'+heroCard?.thumbnail.extension" alt="">
+    </figure>
+
+    <p>{{heroCard?.description}}</p>
+    <a>Reclutar</a>
 </div>

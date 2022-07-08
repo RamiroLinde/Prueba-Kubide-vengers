@@ -10,11 +10,12 @@ export class HeroService {
   baseUrl:string = "https://gateway.marvel.com:443/v1/public/characters";
   constructor(private httpClient: HttpClient) { }
 
-  getAll(): Promise<any>{
+
+  getAll(){
     return this.httpClient.get<any>(`${this.baseUrl}?offset=avengers${this.apiKeyHash}`).toPromise();
   }
 
-  getHeroById(id:number){
+  getHeroById(id:number):Promise<any>{
     return this.httpClient.get<any>(`${this.baseUrl}/${id}?${this.apiKeyHash}`).toPromise();
   }
 }

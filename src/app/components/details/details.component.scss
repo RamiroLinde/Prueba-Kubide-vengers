@@ -1,0 +1,29 @@
+.details{
+    padding: 3rem;
+    .grid{
+        h3{
+            font-weight: 700;
+            font-size: 2rem;
+            padding-bottom: 1rem;
+        }
+        h2{
+            text-align: center;
+            font-weight: 700;
+            font-size: 2rem;
+        }
+
+        a{
+            text-align: center;
+            display: block;
+            width: 100%;
+            text-decoration: none;
+            color: white;
+            font-size: 2rem;
+            padding: 20px;
+            font-weight: 700;
+            background-color: #1db1ec;
+            cursor: pointer;
+        }
+    } 
+}
+    
