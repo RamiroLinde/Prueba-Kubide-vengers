@@ -1,0 +1,25 @@
+<div class="details">
+    <div class="grid">
+        <section class="col-12 col-t-2">
+            <figure>
+                <img [src]="hero?.thumbnail.path+'.'+hero?.thumbnail.extension" alt="">
+            </figure>
+            <a>Reclutar</a>
+        </section>
+        <section class="col-12 col-t-2">
+            <h3>Nombre: {{hero?.name}}</h3>
+            <p>{{hero?.description}}</p>
+        </section>
+        <section class="col-12 col-t-8">
+            <h2>Comics</h2>
+            <div class="grid">
+                <div *ngFor="let comic of comics" class="col-12 col-t-2">
+                        <figure>
+                            <img [src]="comic?.thumbnail.path+'.'+comic?.thumbnail.extension" alt="">
+                        </figure>
+                        <h5>{{comic.title}}</h5>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

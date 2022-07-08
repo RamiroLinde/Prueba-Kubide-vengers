@@ -1,0 +1,19 @@
+*{
+    box-sizing: border-box;
+  }
+  
+  img{
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  body{
+    font-family: $fontFamily;
+    background-color: whitesmoke;
+  }
+  
+  
+  ul{
+    list-style: none;
+  }

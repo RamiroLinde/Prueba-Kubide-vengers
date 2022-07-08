@@ -1,0 +1,23 @@
+@import 'variables';
+@import 'grid';
+
+
+.main{
+    .grid{
+        padding: 3rem;
+    }
+
+    div{
+        margin-top: 3rem;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    input{
+        padding: 10px;
+        width: 70%;
+        border: 1px solid black;
+        outline: none;
+    }
+}

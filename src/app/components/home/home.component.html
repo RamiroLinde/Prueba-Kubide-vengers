@@ -1,6 +1,11 @@
-<section>
-    <h1>Titulo</h1>
-    <article *ngFor="let hero of heroList">
-        <app-thumbnail [heroCard]="hero"></app-thumbnail>
+<div class="main">
+    <div>
+        <input type="text" placeholder="Buscar" (input)="search($event)">
+    </div>
+
+<section class="grid">
+    <article class="col-12 col-t-3" *ngFor="let hero of heroList">
+        <app-thumbnail [heroCard]="hero" [routerLink]="['/detail', hero.id]"></app-thumbnail>
     </article>
 </section>
+</div>
