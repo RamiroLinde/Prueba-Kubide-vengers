@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Team } from 'src/app/interface/team.interface';
 
 @Component({
   selector: 'app-team',
@@ -7,12 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeamComponent implements OnInit {
 
-  constructor() { }
+  team: Team[];
+  myTeam: any;
+  constructor() {
+    this.team = [];
+   }
 
   ngOnInit(): void {
   }
 
-  dateTeam(pForm: any){
+  ngDoCheck(){
+    this.myTeam = JSON.parse(localStorage.getItem('team')|| '{}');
+  }
 
+  dateTeam(pForm: any){
+    localStorage.clear();
+    this.team.push(pForm.value);
+    console.log(pForm.value);
+    localStorage.setItem('team',JSON.stringify(pForm.value));
+    pForm.resetForm({})
   }
 }

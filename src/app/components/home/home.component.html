@@ -4,8 +4,8 @@
     </div>
 
 <section class="grid">
-    <article class="col-12 col-t-3" *ngFor="let hero of heroList">
-        <app-thumbnail [heroCard]="hero" [routerLink]="['/detail', hero.id]"></app-thumbnail>
+    <article class="col-12 col-t-3 col-d-2" *ngFor="let hero of heroList">
+        <app-thumbnail [heroCard]="hero"></app-thumbnail>
     </article>
 </section>
 </div>

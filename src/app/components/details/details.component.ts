@@ -10,6 +10,7 @@ import { HeroService } from 'src/app/services/hero.service';
 })
 export class DetailsComponent implements OnInit {
 
+  arrHero: number[] = [];
   hero: any;
   comics: any[] = [];
   constructor(private heroService:HeroService,
@@ -27,6 +28,16 @@ export class DetailsComponent implements OnInit {
       this.comics = comicsArr.data.results;
       console.log(comicsArr.data.results);
     });
+  }
+
+  addTeam(id:number){
+    // let hero = JSON.parse(localStorage.getItem('hero')|| '{}');
+    // if(hero>6){
+      this.arrHero.push(id);
+      // localStorage.setItem('hero',JSON.stringify(this.addTeam));
+      console.log(this.arrHero);
+    // }
+    // console.log(id);
   }
 
 }

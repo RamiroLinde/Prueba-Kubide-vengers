@@ -1,7 +1,9 @@
-<div class="card actived">
-    <h5>{{heroCard?.name}}</h5>
-    <figure>
-        <img [src]="heroCard?.thumbnail.path+'.'+heroCard?.thumbnail.extension" alt="">
-    </figure>
-    <a>Reclutar</a>
+<div class="card">
+    <section [routerLink]="['/detail', heroCard?.id]">
+        <h5>{{heroCard?.name}}</h5>
+        <figure>
+            <img [src]="heroCard?.thumbnail.path+'.'+heroCard?.thumbnail.extension" alt="">
+        </figure>
+    </section>
+    <a (click)="addTeam(heroCard?.id)">Reclutar</a>
 </div>
