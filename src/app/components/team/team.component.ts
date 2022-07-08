@@ -11,12 +11,19 @@ export class TeamComponent implements OnInit {
   team: Team[];
   myTeam: any;
   heroTeam: any[] = [];
+  createTitle:string = 'Editar equipo';
+  create:string= 'Editar';
   constructor() {
     this.team = [];
    }
 
   ngOnInit(): void {
-    this.heroTeam = JSON.parse(localStorage.getItem('hero')|| '{}');
+    this.myTeam = JSON.parse(localStorage.getItem('team')|| '{}');
+    console.log(this.myTeam);
+    if(this.myTeam.name === undefined && this.myTeam.description === undefined){
+      this.createTitle = "Crear equipo";
+      this.create = "Crear";
+    }
 
   }
 

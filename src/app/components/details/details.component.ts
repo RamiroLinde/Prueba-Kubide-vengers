@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ComicsService } from 'src/app/services/comics.service';
 import { HeroService } from 'src/app/services/hero.service';
 
@@ -17,7 +17,9 @@ export class DetailsComponent implements OnInit {
   arrObject:any;
   recruited:boolean = false; 
   constructor(private heroService:HeroService,
-    private comicsService: ComicsService, private activatedRoot:ActivatedRoute ) { 
+    private comicsService: ComicsService,
+     private activatedRoot:ActivatedRoute,
+     private router: Router ) { 
   }
 
   ngOnInit(){
@@ -47,6 +49,9 @@ export class DetailsComponent implements OnInit {
       this.arrObject.push(h);
       localStorage.setItem('hero',JSON.stringify(this.arrObject));
       this.recruited = true;
+    }else{
+      alert('Vamos a crear un equipo');
+      this.router.navigate(['/team']);
     }
   }
 
