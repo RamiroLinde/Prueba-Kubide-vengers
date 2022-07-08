@@ -4,7 +4,8 @@
             <figure>
                 <img [src]="hero?.thumbnail.path+'.'+hero?.thumbnail.extension" alt="">
             </figure>
-            <a (click)="addTeam(hero?.id)">Reclutar</a>
+            <a *ngIf="!recruited" (click)="addTeam(hero)">Reclutar</a>
+            <a *ngIf="recruited" (click)="deleteTeam(hero.id)">Expulsar</a>
         </section>
         <section class="col-12 col-t-2">
             <h3>Nombre: {{hero?.name}}</h3>

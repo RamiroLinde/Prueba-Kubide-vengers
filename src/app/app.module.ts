@@ -10,6 +10,7 @@ import { DetailsComponent } from './components/details/details.component';
 import { TeamComponent } from './components/team/team.component';
 import { FormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,
