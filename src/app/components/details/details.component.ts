@@ -13,31 +13,47 @@ export class DetailsComponent implements OnInit {
   arrHero: number[] = [];
   hero: any;
   comics: any[] = [];
+
+  arrObject:any;
+  recruited:boolean = false; 
   constructor(private heroService:HeroService,
     private comicsService: ComicsService, private activatedRoot:ActivatedRoute ) { 
   }
 
   ngOnInit(){
+    this.arrObject = JSON.parse(localStorage.getItem('hero')|| '{}');
+    this.arrObject = Object.values(this.arrObject);
+
     this.activatedRoot.params.subscribe(async params =>{
-      console.log(params.id)
+      this.arrObject.forEach((element:any) => {
+        if(params.id === element.id.toString()){
+            this.recruited = true;
+
+        }
+      });
+  
       let heroInfo =  await this.heroService.getHeroById(params.id);
       this.hero = heroInfo.data.results[0];
-      console.log(heroInfo.data.results[0]);
 
       let comicsArr = await this.comicsService.getComicsById(params.id);
       this.comics = comicsArr.data.results;
-      console.log(comicsArr.data.results);
+
     });
   }
 
-  addTeam(id:number){
-    // let hero = JSON.parse(localStorage.getItem('hero')|| '{}');
-    // if(hero>6){
-      this.arrHero.push(id);
-      // localStorage.setItem('hero',JSON.stringify(this.addTeam));
-      console.log(this.arrHero);
-    // }
-    // console.log(id);
+  addTeam(h:any){
+    let team = JSON.parse(localStorage.getItem('team')|| '{}');
+    if(this.arrObject.length<6 && team.name!== undefined && team.description!== undefined){
+      this.arrObject.push(h);
+      localStorage.setItem('hero',JSON.stringify(this.arrObject));
+      this.recruited = true;
+    }
+  }
+
+  deleteTeam(id:any){
+    let newArray = this.arrObject.filter((item:any) => item.id !== id);
+    localStorage.setItem('hero',JSON.stringify(newArray));
+    this.recruited = false;
   }
 
 }

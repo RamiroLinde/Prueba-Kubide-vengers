@@ -17,6 +17,7 @@ export class TeamComponent implements OnInit {
 
   ngOnInit(): void {
     this.heroTeam = JSON.parse(localStorage.getItem('hero')|| '{}');
+
   }
 
   ngDoCheck(){
