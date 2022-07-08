@@ -19,7 +19,6 @@ export class TeamComponent implements OnInit {
 
   ngOnInit(): void {
     this.myTeam = JSON.parse(localStorage.getItem('team')|| '{}');
-    console.log(this.myTeam);
     if(this.myTeam.name === undefined && this.myTeam.description === undefined){
       this.createTitle = "Crear equipo";
       this.create = "Crear";
@@ -34,7 +33,6 @@ export class TeamComponent implements OnInit {
   dateTeam(pForm: any){
     localStorage.clear();
     this.team.push(pForm.value);
-    console.log(pForm.value);
     localStorage.setItem('team',JSON.stringify(pForm.value));
     pForm.resetForm({})
   }

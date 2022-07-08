@@ -16,10 +16,6 @@ export class HomeComponent implements OnInit {
   async ngOnInit(){
     const response = await this.heroService.getAll();
     this.heroList = response.data.results;
-    console.log(this.heroList);
-
-    // const heroId = await this.heroService.getHeroById(1009242);
-    // console.log(heroId);
   }
 
   async search($event:any){
