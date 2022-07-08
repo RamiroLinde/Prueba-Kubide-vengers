@@ -4,7 +4,7 @@
             <figure>
                 <img [src]="hero?.thumbnail.path+'.'+hero?.thumbnail.extension" alt="">
             </figure>
-            <a>Reclutar</a>
+            <a (click)="addTeam(hero?.id)">Reclutar</a>
         </section>
         <section class="col-12 col-t-2">
             <h3>Nombre: {{hero?.name}}</h3>

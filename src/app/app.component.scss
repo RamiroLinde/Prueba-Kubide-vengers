@@ -1,12 +1,29 @@
-div{
-    
-}
-
-h1{
-    padding: 1rem;
-    text-align: center;
-    font-size: 70px;
-    font-weight: 700;
+header{
     background-color: #1B1717;
-    color: white;
-}
+    color: white;    
+    h1{
+        padding: 1rem;
+        text-align: center;
+        font-size: 70px;
+        font-weight: 700;
+    }
+
+    ul{
+        display: flex;
+        align-items: center;
+
+        li{
+           width: 100%; 
+           text-align: center;
+           padding: 1rem;
+           cursor: pointer;
+           background-color: #0077ff69;
+        }
+
+        li:hover{
+            background-color: #0077ffab;
+        }
+    }
+}    
+
+
