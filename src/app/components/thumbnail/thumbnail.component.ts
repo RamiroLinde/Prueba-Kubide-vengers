@@ -15,14 +15,17 @@ export class ThumbnailComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addTeam(id:number){
-    // let hero = JSON.parse(localStorage.getItem('hero')|| '{}');
-    // if(hero>6){
-      this.arrHero.push(id);
-      let arrObject = Object.assign(this.arrHero);
+  addTeam(h:any){
+    let team = JSON.parse(localStorage.getItem('team')|| '{}');
+    console.log(team.name);
+    let arrObject = JSON.parse(localStorage.getItem('hero')|| '{}');
+    console.log(arrObject)
+    arrObject =Object.values(arrObject);
+    if(arrObject.length<6 && team.name!== undefined && team.description!== undefined){
+      arrObject.push(h);
       localStorage.setItem('hero',JSON.stringify(arrObject));
-      console.log(this.arrHero);
-    // }
-    console.log(id);
+      console.log(arrObject);
+    }
+    console.log(h);
   }
 }

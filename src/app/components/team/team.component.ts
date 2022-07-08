@@ -10,11 +10,13 @@ export class TeamComponent implements OnInit {
 
   team: Team[];
   myTeam: any;
+  heroTeam: any[] = [];
   constructor() {
     this.team = [];
    }
 
   ngOnInit(): void {
+    this.heroTeam = JSON.parse(localStorage.getItem('hero')|| '{}');
   }
 
   ngDoCheck(){

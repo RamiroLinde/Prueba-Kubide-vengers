@@ -9,5 +9,10 @@
     <section class="col-12 col-t-8">
         <h5>{{myTeam.name}}</h5>
         <p>{{myTeam.description}}</p>
+        <section class="grid">
+            <article class="col-12 col-t-3" *ngFor="let hero of heroTeam">
+                <app-thumbnail [heroCard]="hero"></app-thumbnail>
+            </article>
+        </section>
     </section>
 </div>
