@@ -1,10 +1,10 @@
 <div class="grid">
     <section class="col-12 col-t-4">
-        <h3>{{createTitle}}</h3>
+        <h3>{{edit? 'Crear equipo': 'Editar equipo'}}</h3>
         <form action="" #formTeam="ngForm" (ngSubmit)="dateTeam(formTeam)">
-            <input id="name" type="text" class="" placeholder="Nombre" ngModel name="name">
-            <input id="description" type="text" class="" placeholder="Descripción" ngModel name="description">
-            <input type="submit" class="" [value]="create">
+            <input id="name" type="text" [ngClass]="{none: empty}" placeholder="Nombre" ngModel name="name">
+            <input id="description" type="text" class="" placeholder="Descripción" [ngClass]="{none: empty}" ngModel name="description">
+            <input type="submit" class="" [value]="edit? 'Crear':'Editar'">
         </form>
     </section>
     <section class="col-12 col-t-8">

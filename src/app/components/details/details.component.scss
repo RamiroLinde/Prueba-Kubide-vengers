@@ -1,3 +1,4 @@
+@import 'variables';
 .details{
     padding: 3rem;
     .grid{
@@ -21,9 +22,13 @@
             font-size: 2rem;
             padding: 20px;
             font-weight: 700;
-            background-color: #1db1ec;
+            background-color: $blueSecondary;
             cursor: pointer;
         }
+        .notRecruited{
+            background-color: $redSecondary;
+        }
+    }
     } 
-}
+
     

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Team } from 'src/app/interface/team.interface';
 
 @Component({
@@ -11,29 +12,38 @@ export class TeamComponent implements OnInit {
   team: Team[];
   myTeam: any;
   heroTeam: any[] = [];
-  createTitle:string = 'Editar equipo';
-  create:string= 'Editar';
-  constructor() {
+
+
+  edit:boolean = true;
+  empty:boolean = false;
+  constructor(private router: Router) {
     this.team = [];
    }
 
   ngOnInit(): void {
+    this.heroTeam = JSON.parse(localStorage.getItem('hero')|| '{}');
     this.myTeam = JSON.parse(localStorage.getItem('team')|| '{}');
-    if(this.myTeam.name === undefined && this.myTeam.description === undefined){
-      this.createTitle = "Crear equipo";
-      this.create = "Crear";
+    if(this.myTeam.name !==undefined){
+    this.edit = false;
     }
-
+    
   }
 
   ngDoCheck(){
     this.myTeam = JSON.parse(localStorage.getItem('team')|| '{}');
+
   }
 
   dateTeam(pForm: any){
-    localStorage.clear();
-    this.team.push(pForm.value);
-    localStorage.setItem('team',JSON.stringify(pForm.value));
-    pForm.resetForm({})
+    console.log(pForm.value);
+    if(pForm.value.name !==null && pForm.value.description !==null && pForm.value.description !=="" &&pForm.value.name !=="" ){
+      this.team.push(pForm.value);
+      localStorage.setItem('team',JSON.stringify(pForm.value));
+      pForm.resetForm({});
+      this.edit = false;
+    }else{
+      this.empty = true;
+    }
+
   }
 }

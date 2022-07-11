@@ -50,7 +50,6 @@ export class DetailsComponent implements OnInit {
       localStorage.setItem('hero',JSON.stringify(this.arrObject));
       this.recruited = true;
     }else{
-      alert('Vamos a crear un equipo');
       this.router.navigate(['/team']);
     }
   }
